@@ -4,11 +4,20 @@ from dotenv import load_dotenv
 import json
 import google.generativeai as genai
 
+
+
+# Check for navigation
+query_params = st.experimental_get_query_params()
+if query_params.get("page") == ["journal"]:
+    st.experimental_set_page_config(page_title="Journal", page_icon="📓")
+elif query_params.get("page") == ["chatbot"]:
+    st.experimental_set_page_config(page_title="Chatbot", page_icon="🤖")
+
 # Load environment variables
 load_dotenv()
 
 # Set the page title and metadata
-st.set_page_config(page_title="MindHaven", page_icon="🧠")
+#st.set_page_config(page_title="MindHaven", page_icon="🧠")
 
 # Load the API key for the generative AI model
 api_key = os.getenv("GENAI_API_KEY")
@@ -56,16 +65,19 @@ convo = model.start_chat(history=conversation_history)
 st.title("MindHaven 🧠")
 st.markdown("Welcome to **MindHaven**, your supportive mental health companion. Feel free to share your thoughts.")
 
-# Privacy Button
-if st.button("Sneak Peek"):
-    st.markdown(
-        """
-        <a href="https://www.aotnorequiem.com/" target="_blank">
-        Click here for a sneak peek of an external site.
-        </a>
-        """,
-        unsafe_allow_html=True,
-    )
+# Sidebar for Settings
+st.sidebar.title("Settings")
+if st.sidebar.button("Reset Chat"):
+    conversation_history.clear()
+    convo = model.start_chat(history=[])
+    st.sidebar.success("Chat reset successfully.")
+
+# Pre-defined Prompts
+st.sidebar.subheader("Quick Prompts")
+prompt = st.sidebar.selectbox("Choose a quick prompt", ["", "Tell me a motivational quote", "How can I handle stress?"])
+if prompt:
+    convo.send_message(prompt)
+    st.write(f"**Bot:** {convo.last.text}")
 
 # User input
 user_input = st.text_input("You:", placeholder="How are you feeling today?")
@@ -74,9 +86,7 @@ user_input = st.text_input("You:", placeholder="How are you feeling today?")
 if st.button("Send", key="SendButton"):
     with st.spinner("Thinking..."):
         if user_input.strip():
-            # Send user input to the model
             convo.send_message(user_input)
-            # Display the bot's response
             st.caption("**Bot's Response:**")
             st.write(convo.last.text)
         else:
