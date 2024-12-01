@@ -1,0 +1,48 @@
+st.markdown(
+    """
+    <style>
+    /* General body styling */
+    body {
+        background-color: #0e1117;
+        color: #fafafa;
+    }
+
+    /* Sidebar styling */
+    .stSidebar {
+        background-color: #ffffff;
+    }
+
+    /* Sidebar text and labels */
+    .stSidebar h1, .stSidebar h2, .stSidebar h3, .stSidebar h4, .stSidebar h5, .stSidebar h6, .stSidebar label {
+        color: #afafaf !important; /* Ensure sidebar text color is white */
+        z-index: 1; /* Ensure text is on top */
+    }
+
+    /* Fix navigation radio button text */
+    .stRadio label {
+        color: #fafafa !important; /* Set navigation text color to white */
+        z-index: 1; /* Prevent masking issues */
+    }
+
+    /* Selected radio button styling */
+    .stRadio input[type="radio"] {
+        accent-color: #ff4b4b; /* Set selected radio button highlight to red */
+    }
+
+    /* Button styling */
+    .stButton button {
+        background-color: #ff4b4b;
+        color: #ffffff;
+        border-radius: 5px;
+    }
+
+    /* Text input and textarea styling */
+    .stTextInput, .stTextArea {
+        background-color: #1c1e22;
+        color: #fafafa;
+        border: 1px solid #444;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)

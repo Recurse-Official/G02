@@ -1,0 +1,6 @@
+streamlit
+firebase-admin
+google-generativeai
+spotipy
+fpdf
+python-dotenv
