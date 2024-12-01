@@ -1,0 +1,140 @@
+/*  */
+*{
+    padding: o;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    /* padding-bottom: 20px; */
+    background-image: url("/assets/images/pur.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family:'Courier New', Courier, monospace;
+}
+.log-inbox{
+    margin-top: 150px;
+    width: 320px;
+    height: 400px;
+    background:none;
+    color: black;
+    top: 35%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    /* The z-index property specifies the stack order of an element.it makes the container appear below the nav */
+    /* z-index: -1; */
+
+}
+.avatar{
+    /* margin-bottom: 100px; */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% -50px);
+
+}
+h1{
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+.log-inbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.log-inbox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.log-inbox input[type="email"], input[type="password"]
+{
+    /* border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: 40px;
+    color: black;
+    font-size: 16px;
+    background-color: #ccc; */
+
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+.log-inbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #d3a5b7;
+    color: black;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.log-inbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: rgb(196, 226, 226);
+    color: black;
+}
+.log-inbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: black;
+}
+.log-inbox a:hover{
+    color: #c430d7;
+}
+
+
+.email{
+    background-color: brown;
+    height: 20px;
+    width: 100%;
+}
+.email a{
+    float: right;
+    color: white;
+}
+.nav{
+    background: #0082e6;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 0;
+    z-index: 99;
+}
+nav ul{
+    float: right;
+    margin: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 50px;
+    padding: 0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 20px;
+    padding: 7px 13px;
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+}
+a.active, a:hover{
+    background-color: #1b9bff;
+    transition: .5s;
+}
+
+/* footer */
